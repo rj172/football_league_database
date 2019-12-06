@@ -1,0 +1,137 @@
+--[1] total goals of each team in a particular match
+
+select club_id,club_name,count(goal_type_id) as total_goals from match_player_stats natural 
+join player natural join clubs
+join matches on matches.match_id =4 and matches.match_id = match_player_stats.match_id
+where goal_type_id is not null
+group by club_id,club_name;
+
+
+
+
+
+--[2] total goals and assists of each player
+
+SELECT COALESCE(player_id, assisted_by) as player_id,COALESCE(e2.total_assists,0) as total_assists,COALESCE(e1.total_goals,0)  as total_goals from 
+		((Select player_id,sum(goal_type_id ) as total_goals from match_player_stats 
+		 where goal_type_id is not null group by player_id) as e1
+		full outer join
+		(select assisted_by,count(assisted_by ) as total_assists from match_player_stats
+		where assisted_by is not null group by assisted_by) as e2
+		on e1.player_id=e2.assisted_by);
+
+
+
+
+--[3] ref with maximum number of matches 
+
+select ref_id ,ref_name,count(match_id)as total_matches from referee natural join has_ref 
+group by ref_id 
+order by count(match_id) desc 
+limit 1;
+
+
+
+--[4] most substituted playerl
+
+select player_id_out, count (*) as total_substitution from substitute
+group by player_id_out order by total_substitution DESC LIMIT 1;
+
+
+
+
+--[5] most goals by a substituted player
+
+Select player_id_in , count(goal_type_id) as total_goals from 
+substitute join match_player_stats on substitute.player_id_in = match_player_stats.player_id
+group by player_id_in
+order by total_goals DESC
+limit 1;
+
+
+--[6] ref who gave most yellow card
+
+
+select ref_id,sum(yellow_card) as yellow_card_given from has_ref natural join match_player_stats  
+where ref_type = 'main' 
+group by ref_id 
+order by count(yellow_card) desc
+limit 1;
+
+
+
+--[7] stadium where max number of goals were scored
+
+select stadium_name,e1.total_goals from stadium natural join(
+Select stadium_id,count(goal_type_id) as total_goals from matches natural join match_player_stats 
+where goal_type_id is not null 
+group by stadium_id
+order by count(goal_type_id) desc
+limit 1) as e1;
+
+
+
+--[8] youngest player to score a hatrick in the tournament
+
+set search_path to football_league2;
+select * from player join
+(select match_id,player_id,count(goal_type_id) as total_goals from match_player_stats 
+where goal_type_id is not null 
+group by(match_id,player_id)) as e1
+on player.player_id = e1.player_id
+where e1.total_goals>=3
+order by 2019 - extract(year from dob)  asc
+limit 1;
+
+--[9] country wise performance
+
+select nationality, count(goal_type_id) as total_scores from 
+match_player_stats natural join player
+where goal_type_id is not null
+group by nationality 
+order by total_scores DESC;
+
+
+--[10] ref who gave most red card
+
+select ref_id,sum(red_card) as red_card_given from has_ref natural join match_player_stats  
+where ref_type = 'main' 
+group by ref_id 
+order by count(red_card) desc
+limit 1;
+
+
+
+--[11]most goals amongst the senior players
+
+select * from player join
+(select player_id,sum(goal_type_id) as total_goals from match_player_stats
+where goal_type_id is not null
+group by player_id) as e1
+on e1.player_id=player.player_id
+where (2019-extract(year from dob)) >26
+order by (2019-extract(year from dob))  desc
+limit 1;
+
+
+--[12]match where most number of yellow cards given after half time
+
+set search_path to gaurav;
+select matches.*, sum(yellow_card) as most_yellow from match_player_stats
+natural join matches
+where time1 > 45
+group by matches.match_id
+order by most_yellow desc
+limit 1;
+
+---[13] fastest goal among top five scorer
+
+select player_id,time1 from match_player_stats natural join
+(select player_id,count(goal_type_id ) as total_goals from match_player_stats
+ where goal_type_id is not null group by player_id order by total_goals desc limit 5) as e
+  where goal_type_id is not null
+order by time1 asc limit 1;
+
+
+--[2] matches yet to be played
+SELECT * from matches  where match_id not in (select match_id from club_stats);

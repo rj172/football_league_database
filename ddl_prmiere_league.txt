@@ -1,0 +1,144 @@
+
+create schema football_league2;
+set search_path to football_league2;
+
+CREATE TABLE clubs(
+		club_id SMALLINT PRIMARY KEY,
+		club_name varchar(255) NOT NULL
+		);
+
+
+CREATE TABLE manager(
+		manager_id SMALLINT PRIMARY KEY,
+		manager_name varchar(255) NOT NULL,
+		age SMALLINT NOT NULL,
+		club_id SMALLINT, 
+		FOREIGN KEY (club_id) REFERENCES clubs(club_id)
+			);
+
+
+CREATE TABLE points_table(
+	club_id SMALLINT PRIMARY KEY,
+	win SMALLINT NOT NULL,
+	draw SMALLINT NOT NULL,
+	loss SMALLINT NOT NULL,
+	matches_played SMALLINT NOT NULL,
+	points SMALLINT NOT NULL,
+	GF SMALLINT NOT NULL,
+	GA SMALLINT NOT NULL,
+	GD SMALLINT NOT NULL,
+	FOREIGN KEY (club_id) REFERENCES clubs(club_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+CREATE TABLE PLAYER(
+	player_id SMALLINT PRIMARY KEY,
+	Player_name VARCHAR(255) NOT NULL,
+	club_id SMALLINT NOT NULL,
+	Height SMALLINT NOT NULL,
+	dob DATE NOT NULL,
+	Position VARCHAR(10) NOT NULL,
+	kit_number SMALLINT NOT NULL,
+	nationality VARCHAR(255) NOT NULL,
+	FOREIGN KEY (club_id) REFERENCES clubs(club_id)
+);
+
+
+
+CREATE TABLE stadium(
+	stadium_id SMALLINT PRIMARY KEY,
+	stadium_name VARCHAR(255) NOT NULL,
+	city VARCHAR(255) NOT NULL,
+	capacity BIGINT NOT NULL,
+	club_id SMALLINT NOT NULL,
+	FOREIGN KEY(club_id) REFEReNCES clubs(club_id)
+);
+
+CREATE TABLE referee(
+	ref_id SMALLINT PRIMARY KEY,
+	ref_name VARCHAR(255) NOT NULL,
+	age SMALLINT NOT NULL
+);
+
+CREATE TABLE matches(
+	match_id SMALLINT PRIMARY KEY,
+	match_date TIMESTAMP NOT NULL,
+	home_team_id SMALLINT NOT NULL,
+	away_team_id SMALLINT NOT NULL,
+	stadium_id SMALLINT NOT NULL,
+	FOREIGN KEY(stadium_id) REFERENCES stadium(stadium_id),
+	FOREIGN KEY(home_team_id) REFERENCES clubs(club_id),
+	FOREIGN KEY(away_team_id) REFERENCES clubs(club_id)
+);
+
+CREATE TABLE has_ref(
+	match_id SMALLINT,
+	ref_id SMALLINT,
+	ref_type VARCHAR(255),
+	PRIMARY KEY(match_id,ref_id),
+	FOREIGN KEY (match_id)REFERENCES matches(match_id),
+	FOREIGN KEY (ref_id) REFERENCES referee(ref_id)
+);
+
+CREATE TABLE club_stats(
+	club_id SMALLINT NOT NULL,
+	possession SMALLINT NOT NULL,
+	offside SMALLINT NOT NULL,
+	match_id SMALLINT NOT NULL,
+	shots SMALLINT NOT NULL,
+	pass_accuracy SMALLINT NOT NULL,
+	PRIMARY KEY(club_id,match_id),
+	FOREIGN KEY (match_id) REFERENCES matches(match_id),
+	FOREIGN KEY (club_id) REFERENCES clubs(club_id)
+	
+);
+
+CREATE TABLE substitute(
+	player_id_out SMALLINT NOT NULL,
+	player_id_in SMALLINT NOT NULL,
+	match_id SMALLINT NOT NULL,
+	sub_time SMALLINT NOT NULL,
+	PRIMARY KEY(player_id_in,match_id),
+	FOREIGN KEY(player_id_in) REFERENCES player(player_id),
+	FOREIGN KEY(player_id_out) REFERENCES player(player_id),
+    FOREIGN KEY(match_id) REFERENCES matches(match_id)
+);
+
+CREATE TABLE goal_type(
+	goal_type_id SMALLINT PRIMARY KEY,
+	goal_type VARCHAR(255) NOT NULL
+	
+);
+
+
+CREATE TABLE match_player_stats(
+	player_id SMALLINT NOT NULL,
+	match_id SMALLINT NOT NULL,
+	time1 SMALLINT NOT NULL,
+	goal_type_id SMALLINT,
+	assisted_by SMALLINT,
+	yellow_card SMALLINT NOT NULL DEFAULT 0,
+	red_card SMALLINT NOT NULL DEFAULT 0,
+	PRIMARY KEY(player_id,match_id,time1),
+	FOREIGN KEY(player_id) REFERENCES player(player_id),
+	FOREIGN KEY(match_id) REFERENCES matches(match_id),
+	FOREIGN KEY(goal_type_id) REFERENCES goal_type(goal_type_id),
+	FOREIGN KEY(assisted_by) REFERENCES player(player_id)
+);
+
+
+CREATE TABLE goalkeeper_stats(
+	player_id SMALLINT ,
+	time1 SMALLINT NOT NULL,
+	match_id SMALLINT NOT NULL,
+	goal_conceded SMALLINT NOT NULL DEFAULT 0,
+	goal_saved SMALLINT NOT NULL DEFAULT 0,
+	PRIMARY KEY(player_id,match_id,time1),
+	FOREIGN KEY(player_id) REFERENCES player(player_id) ON DELETE CASCADE,
+	FOREIGN KEY(match_id) REFERENCES matches(match_id)
+	
+);
+
+
+
+	

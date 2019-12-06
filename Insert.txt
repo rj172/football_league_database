@@ -1,0 +1,590 @@
+--[1] clubs
+insert into clubs (club_id, club_name) values (1, 'Liverpool');
+insert into clubs (club_id, club_name) values (2, 'Arsenal');
+insert into clubs (club_id, club_name) values (3, 'Manchester City');
+insert into clubs (club_id, club_name) values (4, 'Manchester United');
+insert into clubs (club_id, club_name) values (5, 'Leicester City');
+insert into clubs (club_id, club_name) values (6, 'Watford');
+insert into clubs (club_id, club_name) values (7, 'Chelsea');
+insert into clubs (club_id, club_name) values (8, 'Tottenham Hotspur');
+
+
+
+--[2] goal_type
+insert into goal_type (goal_type_id, goal_type) values (1, 'free-kick');
+insert into goal_type (goal_type_id, goal_type) values (2, 'penalty');
+insert into goal_type (goal_type_id, goal_type) values (3, 'in-game');
+
+
+
+--[3] referee
+insert into referee  (ref_id, ref_name, age) values (1, 'Worden', 41);
+insert into referee  (ref_id, ref_name, age) values (2, 'Fowler', 46);
+insert into referee  (ref_id, ref_name, age) values (3, 'Kendall', 41);
+insert into referee  (ref_id, ref_name, age) values (4, 'Stafford', 38);
+insert into referee  (ref_id, ref_name, age) values (5, 'Elisha', 47);
+insert into referee  (ref_id, ref_name, age) values (6, 'Casey', 40);
+insert into referee  (ref_id, ref_name, age) values (7, 'Wyndham', 43);
+insert into referee  (ref_id, ref_name, age) values (8, 'Bordy', 44);
+insert into referee  (ref_id, ref_name, age) values (9, 'Wendel', 38);
+insert into referee  (ref_id, ref_name, age) values (10, 'Jaymie', 48);
+insert into referee  (ref_id, ref_name, age) values (11, 'Link', 48);
+insert into referee  (ref_id, ref_name, age) values (12, 'Benjamin', 48);
+insert into referee  (ref_id, ref_name, age) values (13, 'Quent', 44);
+insert into referee  (ref_id, ref_name, age) values (14, 'Murdoch', 44);
+insert into referee  (ref_id, ref_name, age) values (15, 'Glen', 44);
+insert into referee  (ref_id, ref_name, age) values (16, 'Salvidor', 43);
+insert into referee  (ref_id, ref_name, age) values (17, 'Rufe', 42);
+insert into referee  (ref_id, ref_name, age) values (18, 'Foss', 44);
+insert into referee  (ref_id, ref_name, age) values (19, 'Thornie', 48);
+insert into referee  (ref_id, ref_name, age) values (20, 'Ariel', 45);
+
+
+
+
+--[4] stadium
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (1, 'Anfield', 'Liverpool', 70285, 1);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (2, 'Emirates Stadium', 'London', 76173, 2);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (3, 'Etihad Stadium', 'Manchester', 59055, 3);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (4, 'Old Trafford', 'Manchester', 69040, 4);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (5, 'King Power Stadium', 'Leicester', 75304, 5);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (6, 'Carrow Road', 'Norwich', 66185, 6);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (7, 'Stamford Bridge', 'London', 75146, 7);
+insert into stadium (stadium_id, stadium_name, city, capacity, club_id) values (8, 'Wembley Stadium', 'London', 60034, 8);
+
+
+
+--[5] manager
+insert into manager ( manager_id,  manager_name, age, club_id) values (1, 'Bernard', 55, 1);
+insert into manager ( manager_id,  manager_name, age, club_id) values (2, 'Theodoric', 54, 2);
+insert into manager ( manager_id,  manager_name, age, club_id) values (3, 'Dionysus', 43, 3);
+insert into manager ( manager_id,  manager_name, age, club_id) values (4, 'Bartie', 50, 4);
+insert into manager ( manager_id,  manager_name, age, club_id) values (5, 'Worthington', 47, 5);
+insert into manager ( manager_id,  manager_name, age, club_id) values (6, 'Noby', 42, 6);
+insert into manager ( manager_id,  manager_name, age, club_id) values (7, 'Gardiner', 47, 7);
+insert into manager ( manager_id,  manager_name, age, club_id) values (8, 'Abramo', 53, 8);
+
+
+
+--[13] points_table
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (1,1,1,0,2,4,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (2,0,1,1,2,1,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (3,1,0,0,1,3,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (4,1,0,1,2,3,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (5,0,0,1,2,0,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (6,0,1,0,1,1,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (7,0,1,0,1,1,0,0,0);
+insert into points_table(club_id,win,draw,loss,matches_played,points,gf,ga,gd) values (8,1,2,0,3,5,0,0,0);
+
+
+--[6] player
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (1, 'Tim Krul', 1, 172, '12/04/2000', 'GK', 1, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (2, 'Bernd Leno', 2, 169, '05/30/2001', 'GK', 2, 'El Salvador');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (3, 'David de Gea', 3, 182, '01/13/1991', 'GK', 3, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (4, 'Ederson', 4, 182, '04/05/1996', 'GK', 4, 'Portugal');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (5, 'Kepa Arrizabalaga', 5, 182, '07/30/1991', 'GK', 5, 'Japan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (6, 'Kasper Schmeichel', 6, 170, '11/16/2001', 'GK', 6, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (7, 'Jordan Pickford', 7, 174, '06/08/1992', 'GK', 7, 'Estonia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (8, 'Paulo Gazzaniga', 8, 181, '02/08/1997', 'GK', 8, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (9, 'Alexis Sanchez', 1, 175, '04/22/1999', 'CMF', 9, 'Poland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (10, 'Mesut Ozil', 2, 191, '12/24/1993', 'CF', 10, 'Syria');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (11, 'Petr Cech', 3, 186, '11/27/1994', 'LB', 11, 'Armenia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (12, 'Theo Walcott', 4, 171, '09/06/1993', 'LWF', 12, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (13, 'Laurent Koscielny', 5, 182, '02/15/2000', 'CB', 13, 'Kuwait');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (14, 'Hector Bellerin', 6, 181, '09/24/1996', 'CF', 14, 'Kyrgyzstan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (15, 'Olivier Giroud', 7, 167, '01/12/2002', 'LB', 15, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (16, 'Nacho Monreal', 8, 179, '04/13/1994', 'LB', 16, 'Argentina');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (17, 'Shkodran Mustafi', 1, 169, '04/17/1995', 'RWF', 17, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (18, 'Alex Iwobi', 2, 178, '09/26/1996', 'CMF', 18, 'France');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (19, 'Granit Xhaka', 3, 180, '06/20/1996', 'LB', 19, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (20, 'Alex Oxlade-Chamberlain', 4, 174, '03/06/1991', 'CB', 20, 'United States');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (21, 'Jack Wilshere', 5, 166, '03/16/1996', 'DMF', 21, 'Venezuela');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (22, 'Aaron Ramsey', 6, 187, '03/31/1995', 'CMF', 22, 'Poland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (23, 'Francis Coquelin', 7, 186, '12/14/1996', 'CMF', 23, 'Zimbabwe');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (24, 'Gabriel Paulista', 8, 173, '11/30/2000', 'LB', 24, 'Sweden');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (25, 'Kieran Gibbs', 1, 178, '07/06/1999', 'CF', 25, 'Japan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (26, 'Santi Cazorla', 2, 167, '05/08/2000', 'LB', 26, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (27, 'Danny Welbeck', 3, 189, '06/17/1991', 'CMF', 27, 'Cameroon');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (28, 'Rob Holding', 4, 185, '10/23/2000', 'CF', 28, 'Kosovo');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (29, 'Mohamed Elneny', 5, 181, '01/04/1999', 'CB', 29, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (30, 'Lucas Perez', 6, 177, '06/21/2000', 'CF', 30, 'Poland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (31, 'Emiliano Martinez', 7, 192, '01/26/2001', 'LWF', 31, 'Serbia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (32, 'David Ospina', 8, 171, '04/27/1993', 'DMF', 32, 'Sweden');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (33, 'Carl Jenkinson', 1, 188, '03/20/1996', 'LB', 33, 'Kazakhstan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (34, 'Per Mertesacker', 2, 191, '10/27/1997', 'CMF', 34, 'Colombia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (35, 'Sead Kolasinac', 3, 179, '11/25/1995', 'RWF', 35, 'Japan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (36, 'Alexandre Lacazette', 4, 171, '01/04/1992', 'RWF', 36, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (37, 'Eden Hazard', 5, 183, '07/19/1994', 'CF', 37, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (38, 'Diego Costa', 6, 171, '07/01/1997', 'CF', 38, 'United States');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (39, 'Gary Cahill', 7, 194, '06/14/1993', 'CB', 39, 'Ukraine');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (40, 'Marcos Alonso Mendoza', 8, 193, '08/09/1994', 'CMF', 40, 'Colombia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (41, 'Cesar Azpilicueta', 1, 168, '08/27/1999', 'CMF', 41, 'Tanzania');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (42, 'Pedro', 2, 179, '04/15/1995', 'DMF', 42, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (43, 'Thibaut Courtois', 3, 166, '08/16/1991', 'DMF', 43, 'Sweden');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (44, 'David Luiz', 4, 184, '07/15/2001', 'CB', 44, 'Ukraine');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (45, 'Cesc Fabregas', 5, 182, '06/22/1992', 'RWF', 45, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (46, 'Willian', 6, 170, '06/09/1999', 'LB', 46, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (47, 'Victor Moses', 7, 185, '02/10/1991', 'CB', 47, 'Bulgaria');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (48, 'Nemanja Matic', 8, 189, '04/01/2000', 'LWF', 48, 'Thailand');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (49, 'N%27Golo Kante', 1, 181, '08/30/1993', 'CMF', 49, 'Tunisia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (50, 'Willy Caballero', 2, 180, '09/16/1998', 'CMF', 50, 'Brazil');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (51, 'Michy Batshuayi', 3, 191, '01/31/1995', 'LB', 51, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (52, 'Kurt Zouma', 4, 179, '01/03/2001', 'CMF', 52, 'South Africa');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (53, 'Kenedy', 5, 167, '12/18/2000', 'DMF', 53, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (54, 'Eduardo Carvalho', 6, 188, '04/12/1993', 'DMF', 54, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (55, 'Antonio Rudiger', 7, 173, '04/06/1994', 'LB', 55, 'Serbia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (56, 'Tiemoue Bakayoko', 8, 169, '01/20/2002', 'CB', 56, 'Brazil');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (57, 'Jamie Vardy', 1, 170, '02/26/2000', 'LB', 57, 'Brazil');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (58, 'Riyad Mahrez', 2, 184, '01/01/1993', 'CB', 58, 'France');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (59, 'Kasper Schmeichel', 3, 166, '12/01/1990', 'CB', 59, 'Poland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (60, 'Christian Fuchs', 4, 169, '02/02/1994', 'LB', 60, 'Portugal');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (61, 'Marc Albrighton', 5, 167, '06/17/1992', 'CB', 61, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (62, 'Robert Huth', 6, 187, '09/22/1999', 'CMF', 62, 'Portugal');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (63, 'Danny Simpson', 7, 188, '07/27/1997', 'DMF', 63, 'Luxembourg');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (64, 'Islam Slimani', 8, 172, '07/06/1997', 'CF', 64, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (65, 'Harry Maguire', 1, 182, '02/02/1995', 'CF', 65, 'Morocco');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (66, 'Danny Drinkwater', 2, 195, '10/01/1998', 'LWF', 66, 'United States');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (67, 'Wes Morgan', 3, 193, '02/03/1991', 'CB', 67, 'Ireland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (68, 'Shinji Okazaki', 4, 186, '05/17/1994', 'LB', 68, 'Canada');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (69, 'Wilfred Ndidi', 5, 185, '06/25/1996', 'DMF', 69, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (70, 'Demarai Gray', 6, 187, '05/17/1997', 'CMF', 70, 'Uruguay');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (71, 'Daniel Amartey', 7, 177, '06/24/1999', 'CMF', 71, 'Serbia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (72, 'Andy King', 8, 165, '08/23/1998', 'LWF', 72, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (73, 'Ahmed Musa', 1, 172, '03/08/2001', 'RWF', 73, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (74, 'Yohan Benalouane', 2, 182, '06/04/2000', 'RWF', 74, 'Czech Republic');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (75, 'Leonardo Ulloa', 3, 172, '07/14/1993', 'CB', 75, 'Lebanon');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (76, 'Ben Chilwell', 4, 191, '03/21/2002', 'CMF', 76, 'Brazil');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (77, 'Nampalys Mendy', 5, 184, '05/29/1994', 'CMF', 77, 'Russia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (78, 'Ben Hamer', 6, 179, '09/12/1996', 'LB', 78, 'Brazil');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (79, 'Molla Wague', 7, 190, '02/01/1999', 'CF', 79, 'Bolivia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (80, 'Vicente Iborra', 8, 171, '03/15/1997', 'DMF', 80, 'Portugal');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (81, 'Roberto Firmino', 1, 193, '02/05/2001', 'CMF', 81, 'Japan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (82, 'Philippe Coutinho', 2, 184, '07/07/2001', 'LB', 82, 'Tanzania');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (83, 'Sadio Mane', 3, 177, '03/08/2002', 'LB', 83, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (84, 'Georginio Wijnaldum', 4, 168, '05/04/1997', 'CMF', 84, 'Greece');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (85, 'James Milner', 5, 191, '05/28/2001', 'CF', 85, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (86, 'Adam Lallana', 6, 182, '08/21/2000', 'CMF', 86, 'Philippines');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (87, 'Nathaniel Clyne', 7, 167, '04/26/1992', 'RWF', 87, 'Cameroon');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (88, 'Simon Mignolet', 8, 165, '06/15/1993', 'CB', 88, 'Portugal');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (89, 'Dejan Lovren', 1, 167, '01/19/1991', 'RWF', 89, 'Philippines');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (90, 'Emre Can', 2, 180, '04/17/1993', 'LB', 90, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (91, 'Joel Matip', 3, 175, '09/18/2000', 'CB', 91, 'Syria');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (92, 'Divock Origi', 4, 171, '11/08/1995', 'DMF', 92, 'Finland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (93, 'Jordan Henderson', 5, 183, '07/13/1994', 'CF', 93, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (94, 'Daniel Sturridge', 6, 188, '05/25/1996', 'RWF', 94, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (95, 'Lucas Leiva', 7, 167, '03/02/2002', 'CMF', 95, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (96, 'Ragnar Klavan', 8, 177, '12/01/1996', 'CMF', 96, 'Philippines');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (97, 'Mamadou Sakho', 1, 174, '04/07/2002', 'LB', 97, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (98, 'Loris Karius', 2, 165, '03/10/1996', 'CMF', 98, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (99, 'Trent Alexander-Arnold', 3, 185, '05/08/1999', 'LB', 99, 'Indonesia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (100, 'Alberto Moreno', 4, 171, '06/10/1997', 'RWF', 100, 'Poland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (101, 'Ben Woodburn', 5, 172, '03/30/2000', 'CMF', 101, 'United States');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (102, 'Marko Grujic', 6, 174, '06/17/2000', 'CF', 102, 'Czech Republic');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (103, 'Joe Gomez', 7, 173, '01/26/1991', 'CF', 103, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (104, 'Sheyi Ojo', 8, 195, '01/24/1997', 'DMF', 104, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (105, 'Mohamed Salah', 1, 173, '10/28/1991', 'LB', 105, 'Dominican Republic');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (106, 'Danny Ings', 2, 186, '06/12/1996', 'LB', 106, 'China');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (107, 'Dominic Solanke', 3, 178, '02/16/1992', 'LWF', 107, 'United States');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (108, 'Kevin De Bruyne', 4, 176, '09/21/1991', 'LWF', 108, 'Afghanistan');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (109, 'Sergio Aguero', 5, 165, '10/14/2001', 'LB', 109, 'Estonia');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (110, 'Raheem Sterling', 6, 169, '06/06/1997', 'CF', 110, 'France');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (111, 'Kyle Walker', 7, 183, '08/04/1991', 'LB', 111, 'Finland');
+insert into player ( player_id,  player_name, club_id, height, dob, position, kit_number, nationality) values (112, 'David Silva', 8, 195, '02/17/1997', 'CMF', 112, 'China');
+
+
+
+
+--[7] matches
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (1, '2018-01-01', 4, 5, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (2, '2018-01-03', 2, 3, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (3, '2018-01-05', 7, 2, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (4, '2018-01-07', 4, 8, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (5, '2018-01-09', 5, 1, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (6, '2018-01-11', 6, 8, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (7, '2018-01-13', 8, 1, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (8, '2018-01-15', 6, 4, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (9, '2018-01-17', 2, 6, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (10, '2018-01-19', 7, 1, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (11, '2018-01-21', 1, 3, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (12, '2018-01-23', 7, 4, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (13, '2018-01-25', 2, 5, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (14, '2018-01-27', 8, 3, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (15, '2018-01-29', 2, 1, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (16, '2018-01-31', 3, 4, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (17, '2018-02-02', 6, 1, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (18, '2018-02-04', 8, 7, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (19, '2018-02-06', 2, 8, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (20, '2018-02-08', 5, 6, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (21, '2018-02-10', 6, 3, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (22, '2018-02-12', 4, 2, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (23, '2018-02-14', 7, 3, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (24, '2018-02-16', 5, 8, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (25, '2018-02-18', 1, 4, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (26, '2018-02-20', 7, 5, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (27, '2018-02-22', 5, 3, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (28, '2018-02-24', 6, 7, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (29, '2018-02-26', 1, 2, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (30, '2018-02-28', 3, 1, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (31, '2018-03-02', 8, 4, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (32, '2018-03-04', 2, 7, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (33, '2018-03-06', 1, 5, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (34, '2018-03-08', 8, 6, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (35, '2018-03-10', 5, 4, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (36, '2018-03-12', 3, 2, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (37, '2018-03-14', 3, 7, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (38, '2018-03-16', 8, 5, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (39, '2018-03-18', 4, 1, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (40, '2018-03-20', 7, 8, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (41, '2018-03-22', 1, 6, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (42, '2018-03-24', 8, 2, '8');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (43, '2018-03-26', 6, 5, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (44, '2018-03-28', 2, 4, '2');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (45, '2018-03-30', 3, 6, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (46, '2018-04-01', 4, 3, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (47, '2018-04-03', 1, 8, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (48, '2018-04-05', 4, 6, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (49, '2018-04-07', 1, 7, '1');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (50, '2018-04-09', 6, 2, '6');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (51, '2018-04-11', 3, 8, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (52, '2018-04-13', 5, 2, '5');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (53, '2018-04-15', 4, 7, '4');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (54, '2018-04-17', 7, 6, '7');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (55, '2018-04-19', 3, 5, '3');
+insert into matches (match_id, match_date, home_team_id, away_team_id, stadium_id) values (56, '2018-04-21', 5, 7, '5');
+
+
+
+
+
+
+--[8] has_referee
+insert into has_ref ( match_id, ref_id, ref_type) values (1, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (2, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (3, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (4, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (5, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (6, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (7, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (8, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (9, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (10, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (11, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (12, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (13, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (14, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (15, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (16, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (17, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (18, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (19, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (20, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (21, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (22, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (23, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (24, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (25, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (26, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (27, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (28, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (29, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (30, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (31, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (32, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (33, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (34, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (35, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (36, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (37, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (38, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (39, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (40, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (41, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (42, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (43, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (44, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (45, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (46, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (47, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (48, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (49, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (50, 1, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (51, 2, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (52, 3, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (53, 4, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (54, 5, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (55, 6, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (56, 7, 'main');
+insert into has_ref ( match_id, ref_id, ref_type) values (1, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (2, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (3, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (4, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (5, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (6, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (7, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (8, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (9, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (10, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (11, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (12, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (13, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (14, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (15, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (16, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (17, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (18, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (19, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (20, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (21, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (22, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (23, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (24, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (25, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (26, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (27, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (28, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (29, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (30, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (31, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (32, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (33, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (34, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (35, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (36, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (37, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (38, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (39, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (40, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (41, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (42, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (43, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (44, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (45, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (46, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (47, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (48, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (49, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (50, 8, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (51, 9, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (52, 10, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (53, 11, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (54, 12, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (55, 13, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (56, 14, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (1, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (2, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (3, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (4, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (5, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (6, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (7, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (8, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (9, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (10, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (11, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (12, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (13, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (14, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (15, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (16, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (17, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (18, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (19, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (20, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (21, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (22, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (23, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (24, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (25, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (26, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (27, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (28, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (29, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (30, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (31, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (32, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (33, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (34, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (35, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (36, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (37, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (38, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (39, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (40, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (41, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (42, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (43, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (44, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (45, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (46, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (47, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (48, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (49, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (50, 16, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (51, 17, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (52, 18, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (53, 19, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (54, 20, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (55, 15, 'assistant');
+insert into has_ref ( match_id, ref_id, ref_type) values (56, 16, 'assistant');
+
+
+
+
+
+--[9] goalkeeper_stats
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 66, 1,1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 49, 1,1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 73, 1, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (5, 28, 1, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (5, 55, 1, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (2, 2, 2, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (3, 4, 2, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (2, 52, 2, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (7, 59, 3, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 62, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 57, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 4, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (4, 89, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 53, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 5, 4, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 9, 5, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 39, 5, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 69, 5, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 29, 5, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (6, 63, 6, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 78, 6, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (6, 8, 6, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 51, 6, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 54, 6, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 55, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 59, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 43, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 45, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (8, 80, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 83, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 81, 7, 1);
+insert into goalkeeper_stats (player_id, time1, match_id, goal_saved) values (1, 80, 7, 1);
+
+
+
+
+
+
+--[10] club_stats
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (4, 40, 4, 1, 7, 65);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (5, 60, 5, 1, 9, 75);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (2, 30, 7, 2, 10, 86);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (3, 70, 3, 2, 11, 83);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (7, 35, 7, 3, 12, 85);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (2, 65, 3, 3, 8, 73);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (4, 40, 9, 4, 9, 81);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (8, 60, 8, 4, 13, 80);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (5, 48, 2, 5, 10, 77);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (1, 52, 1, 5, 11, 89);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (6, 56, 2, 6, 15, 85);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (8, 44, 3, 6, 13, 77);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (8, 45, 7, 7, 9, 84);
+insert into club_stats (club_id, possession, offside, match_id, shots, pass_accuracy) values (1, 55, 6, 7, 8, 90);
+
+
+
+
+
+--[11] match_player_stats
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (108, 1, 51, 3, 36, 0, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (108, 1, 48, 3, 4, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (12, 1, 35, NULL, NULL,1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (20, 1, 44, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (44, 1, 56, 2, NULL, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (49, 1, 60, 1, NULL, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (52, 1, 89, NULL, NULL, 0, 1);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (109, 1, 62, 3, 85, 0, 0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (109, 1, 50, 1, NULL, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (109, 1, 90, 1, NULL,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (77, 1, 49, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (45, 1, 59, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (18, 2, 3, NULL, NULL,1, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (18, 2, 44, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (26, 2, 84, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (66, 2, 70, NULL, NULL, 0, 1);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (19, 2, 12, 3, 83, 0, 0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (83, 2, 75, 3, 19, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (67, 2, 90, NULL, NULL, 0, 1);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (15, 3, 11, 2, NULL, 0, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (111,3, 80, 3, 15, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (10, 3, 35, 3, 82,0, 0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (10, 3, 44, 3, 82, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (100, 4, 51, NULL,NULL,1, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (108, 4, 62, NULL, NULL, 0, 1);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (76, 4, 25, NULL, NULL,1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (16, 4, 55, 3, 112, 0,0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (112, 4, 56, 3, 56,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (112, 4, 53, 3, 56, 0,0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (112, 4, 80, 1,NULL,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (88, 4, 75, 3,56, 0,0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (88, 4, 82, 3,56, 0,0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (16, 4, 88, 3,56,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (16, 4, 90, 3,56,0,0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (77, 5, 2, NULL,NULL,1, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (45, 5, 10, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (101,5, 58, NULL, NULL,1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (57, 5, 20, NULL,NULL,1, 0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (89, 5, 17, NULL, NULL, 0, 1);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (105,5,90 , 3,97,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (33,5,85 , 3,57,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (57,5,75, 3,73,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (25,5,70 , 1,NULL,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (112, 7, 58, 1,NULL,0, 0);/**home team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (48, 7, 59, 3,73, 0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (24,7, 78, 3, 72,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (112, 7, 88, NULL,NULL,1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (48, 7, 51, NULL, NULL, 1, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (9,7,60 , 3,73,0, 0);/**away team**/
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (105,7,85 , 3,73,0, 0);
+insert into match_player_stats ( player_id, match_id, time1, goal_type_id, assisted_by, yellow_card, red_card) values (105,7,90 , 3,73,0, 0);
+
+
+
+
+
+--[12] substiute
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (28, 108, 1, 47);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (60, 100, 1, 79);
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (53, 109, 1, 48);/**away team**/
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (42, 90, 2, 60);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (58, 98, 2, 60);
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (19, 99, 2,60);/**away team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (27, 91, 2, 60);
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (39, 111, 3, 69);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (26, 90, 3,79);/**away team**/
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (84, 100, 4, 48);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (60, 108, 4, 55);
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (32, 112, 4, 48);/**away team**/
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (29, 101, 5, 50);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (17, 105, 5, 50);/**away team**/
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (38, 110, 6, 72);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (40, 112, 6, 79);/**away team**/
+
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (24, 112, 7, 55);/**home team**/
+insert into substitute (player_id_out, player_id_in, match_id, sub_time) values (33, 105, 7, 80);/**away team**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

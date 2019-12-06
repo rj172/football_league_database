@@ -1,0 +1,77 @@
+
+--[1] match_player_stats updates points_table
+
+CREATE OR REPLACE FUNCTION goal_trigger_func() RETURNS TRIGGER AS $points_table$
+DECLARE
+	pl points_table%ROWTYPE;
+	home SMALLINT;
+	away SMALLINT;
+	players SMALLINT;
+BEGIN
+	if(new.goal_type_id is  null) then
+			return null;
+		end if;
+	select home_team_id FROM matches  where matches.match_id = new.match_id INTO home;
+	select away_team_id FROM matches where matches.match_id = new.match_id INTO away;
+	SELECT club_id FROM player WHERE player.player_id = new.player_id INTO players;
+	for pl IN SELECT * FROM points_table
+	LOOP
+		
+			if( players=home ) then
+				UPDATE points_table SET gf=gf+1 ,gd=gf-ga+1 WHERE points_table.club_id=home;
+				UPDATE points_table SET ga=ga+1,gd=gf-ga-1 WHERE points_table.club_id= away;
+				return NEW;
+			elsif(players=away) then
+				UPDATE points_table SET ga=ga+1,gd=gf-ga-1 WHERE points_table.club_id=home;
+				UPDATE points_table SET gf=gf+1,gd=gf-ga+1 WHERE points_table.club_id= away;
+				RETURN NEW;
+		END IF;
+		
+	END LOOP;
+
+	RETURN NEW;
+END;
+$points_table$ LANGUAGE plpgsql;
+
+
+create trigger goal_update 
+after update or insert on match_player_stats
+for each row
+execute procedure goal_trigger_func() ;
+
+
+--[2]  goal conceded update
+
+CREATE  OR REPLACE FUNCTION goalkeeper_func() RETURNS TRIGGER AS $goalkeeper_stats$
+DECLARE
+	pl goalkeeper_stats%ROWTYPE;
+	home SMALLINT;
+	away SMALLINT;
+	home_gk SMALLINT;
+	away_gk SMALLINT;
+	players SMALLINT;
+BEGIN
+	select home_team_id FROM match_player_stats NATURAL JOIN matches where matches.match_id = new.match_id  INTO home;
+	select away_team_id FROM match_player_stats NATURAL JOIN matches where matches.match_id = new.match_id  INTO away;
+	select player_id from player where position='GK' and club_id = home into home_gk;
+	select player_id from player where position='GK' and club_id = away into away_gk;
+	SELECT club_id FROM player WHERE player.player_id = new.player_id INTO players;
+	if(new.goal_type_id is not null ) then
+		if(players=home) then
+			insert into goalkeeper_stats values(away,new.time1,new.match_id,1,0);
+		elsif(players=away) then
+			insert into goalkeeper_stats values(home,new.time1,new.match_id,1,0);
+		end if;
+	end if ;
+	RETURN NEW;
+END
+$goalkeeper_stats$ LANGUAGE plpgsql;
+
+create trigger goalkeeper_updates 
+after update or insert on match_player_stats
+for each row
+execute procedure goalkeeper_func() ;
+
+
+
+			

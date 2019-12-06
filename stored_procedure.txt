@@ -1,0 +1,141 @@
+set search_path to football_league;
+
+
+--[1] points table
+
+CREATE TABLE RANKING(
+ranks SMALLINT,
+club_name VARCHAR(255),
+points smallint,
+gd smallint
+);
+
+
+CREATE OR REPLACE FUNCTION team_ranks() RETURNS setof RANKING AS $body$
+DECLARE
+	count1 SMALLINT;
+	pl record;
+	ab RANKING;
+BEGIN
+	count1:=1;
+	for pl in SELECT * FROM points_table natural join clubs order by points desc,gd desc
+	LOOP
+		
+		ab.club_name = pl.club_name;
+		ab.ranks = count1;
+		ab.points = pl.points;
+		ab.gd = pl.gd;
+		count1:=count1+1;
+		RETURN NEXT ab;
+	end loop;
+	return ;
+END
+$body$ LANGUAGE plpgsql;
+
+select * from team_ranks();
+
+
+		
+---[2] most valuable player
+
+
+
+CREATE OR REPLACE FUNCTION most_valuable_player()
+RETURNS VARCHAR(255) AS $body$
+DECLARE 
+	pl record;
+	ot record;
+	sum1 SMALLINT:=0;
+	sum2 SMALLINT:=0;
+	player1 SMALLINT;
+	ans VARCHAR(255);
+BEGIN
+	
+	for pl in SELECT * FROM 
+	((SELECT assisted_by,count(*) as total_assist from match_player_stats where assisted_by is not null group by assisted_by) as r1  
+	 full join 
+	(select player_id,count(goal_type_id) as total_goals from match_player_stats where goal_type_id is not null group by player_id) as r2
+	on r1.assisted_by = r2.player_id ) as r4
+	LOOP
+		sum1:=0;
+		if(pl.assisted_by is not NULL) then
+		sum1 := sum1 + pl.total_assist*3;
+		end if;
+		sum1:=sum1+pl.total_goals*5;
+		if(sum1>sum2) then
+		sum2:=sum1;
+		player1 = pl.player_id;
+		end if;
+	end loop;
+	SELECT player_name from player where player_id = player1 into ans;
+	return ans;
+end;
+$body$ LANGUAGE plpgsql;
+
+select * from most_valuable_player();
+
+
+
+
+--[3] golden boot
+
+
+set search_path to gaurav;
+create type top_player as(
+name text,
+goals smallint	
+);
+create or replace function golden_boot()
+returns top_player as $golden_boot$
+declare
+    cr7 top_player;
+
+begin
+    select player_name,goals from player natural join
+	(select player_id,count(*) as goals from match_player_stats where goal_type_id is not null group by player_id order by goals desc limit 1) as r1 into cr7; 
+   
+	return cr7;
+end;	
+$golden_boot$ language plpgsql;
+
+select * from golden_boot();
+
+
+
+
+
+
+--[4] golden glove
+
+
+create or replace function golden_glove()
+returns varchar(255) as $body$
+declare
+       pl record;
+	   cr7 goalkeeper;
+	   gc smallint;
+	   goalki smallint;
+	   sum1 smallint;
+	   sum2 smallint;
+begin 
+     sum1:=0;
+	 sum2:=-9999;
+	 for pl in select player_id,count(goal_conceded) as total_conceded , count(goal_saved) as total_saved from goalkeeper_stats group by player_id 
+	 loop
+	 	
+		 sum1 := pl.total_saved*0.4 - pl.total_conceded*0.6;
+		 if(sum2 < sum1) then
+			 sum2 := sum1;
+			 goalki = pl.player_id;
+	 	end if;
+	 end loop;
+	return (select player_name from player where player_id = goalki);
+end;
+$body$ language plpgsql;
+
+select * from golden_glove();
+
+
+
+	
+	
